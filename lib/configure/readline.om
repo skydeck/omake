@@ -35,7 +35,7 @@ open configure/ncurses
         # Test that readline exists
         if $(and $(CheckHeader readline/readline.h readline/history.h), $(CheckLib ncurses readline, tgetent tgetstr readline))
             READLINE_AVAILABLE = true
-            READLINE_CLIBS = -lncurses -lreadline
+            READLINE_CLIBS = -L$(LIBDIR) -lncurses -lreadline
             READLINE_CFLAGS += -DREADLINE_ENABLED
 
             # Test for GNU
